@@ -1,0 +1,82 @@
+/*
+ * Main LESS file, loads all other files
+ */
+
+@import "font-awesome-custom.less";
+@import "normalize.less";
+@import "print.less";
+@import "header.less";
+@import "content.less";
+
+// Brand colors -> used for example for links (naming convention from Bootstrap)
+@brand-primary: #009ACD;
+
+// Scaffolding
+@text-color: #222;
+
+// Typography
+@font-face { font-family: Inconsolata; src: url('../fonts/Inconsolata.otf'); }
+@font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-monospace:  "Inconsolata", Monaco, Menlo, Consolas, "Courier New", monospace;
+
+@font-size-base: 14px;
+@font-weight-base:     300;
+@font-weight-link:     600;
+@font-weight-strong:   600;
+@line-height-base: 1.42;
+
+@headings-font-family: @font-family-sans-serif;
+@headings-font-weight: 600;
+@headings-line-height: 1.1;
+
+body {
+  font-weight: @font-weight-base;
+  font-family: @font-family-sans-serif;
+  padding-bottom: 15px;
+  text-rendering: optimizeLegibility;
+  font-size: @font-size-base;
+  background-color: #222;
+  color: @text-color;
+}
+
+a {
+  font-weight: @font-weight-link;
+  text-decoration: none;
+  color: @brand-primary;
+  &:hover, &:focus { text-decoration: none; }
+}
+
+h1, h2, h3 {
+  margin-top: 1em;
+  font-family: @headings-font-family;
+  a {
+    color: @text-color;
+    font-weight: 600;
+  }
+}
+
+blockquote {
+  font-style: italic;
+  p { font-size: @font-size-base; }
+}
+
+img { max-width: 100%; }
+
+// from HTML5 Boilerplate
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+img { vertical-align: middle; }
+
+textarea { resize: vertical; }
+
+.footer-container {
+  color: #eee;
+  text-align: center;
+}

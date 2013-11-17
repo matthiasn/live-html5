@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <title>live-html5</title>
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=2, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="fragment" content="!">
+
+    <!--(if target dev)><!-->
+
+    <!-- less.js will recompile LESS in the following link.
+         Note: can also point to plain CSS, smooth reload will work, e.g.-->
+    <!--link rel="stylesheet/less" href=" css/main.css"-->
+    <link rel="stylesheet/less" href=" less/main.less">
+    <script src="bower_components/less/dist/less-1.5.0.js"></script>
+    <!--<!(endif)-->
+
+    <!-- build:style inline bundle --><!-- /build -->
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+</head>
+<body data-ng-app="ngBlog">
+
+<header class="header" role="banner">
+    <div class="site-logo">Live <i class="fa fa-html5"></i> HTML5</div>
+
+    <ul class="site-nav">
+        <li>
+            <a href="https://github.com/matthiasn/live-html5" target="_blank"
+               data-ga-category="Outbound links"
+               data-ga-action="Nav click" data-ga-label="GitHub">GitHub</a>
+        </li>
+        <li>
+            <a href="https://github.com/matthiasn/live-html5/archive/master.zip" target="_blank"
+               data-ga-category="Outbound links"
+               data-ga-action="Nav click" data-ga-label="Download">Download</a>
+        </li>
+        <li>
+            <a href="http://matthiasnehlsen.com" target="_blank"
+               data-ga-category="Outbound links"
+               data-ga-action="Nav click" data-ga-label="Blog">Blog</a>
+        </li>
+    </ul>
+
+    <div class="site-promo">
+        <h1>This page reloads automatically during authoring.</h1>
+
+        <p class="description">Better yet, <strong>CSS</strong> changes happen instantly, without reload. Works on <strong>mobile</strong>, too.</p>
+    </div>
+</header>
+
+<div class="content" data-ng-controller="blogCtrl">
+    <div class="page-wrap">
+        <section class="main-content" role="main">
+
+            <h1>Live Reload during Authoring</h1>
+
+
+            <p><a href="https://github.com/matthiasn/live-html5" target="_blank"
+                  data-ga-category="Outbound links"
+                  data-ga-action="Nav click" data-ga-label="GitHub">Live <i class="fa fa-html5"></i> HTML5</a> is an HTML5 template that features a node.js based authoring server which live reloads the page during authoring whenever a file of the project changes. When changes in the HTML, the JavaScript files or associated images occur, the page simply reloads. CSS file changes are handled even more gracefully: the layout just refreshes, without a reload that affects the page state.</p>
+
+            <p>This project was born while trying to learn more about flexbox layout, a fairly new feature in CSS3. The author was immensely frustrated about having to reload the page in browsers to see any little change in the CSS, particularly when involving mobile browsers on Android, iPhone or iPad. And then the reload would of course change the scrolling position, making it unnecessarily complicated to notice minor but important layout tweaks.</p>
+
+            <p>The live reloading is achieved by using a node.js based server in authoring mode. This server has two features:</p>
+            <ul>
+                <li>it serves all the files associated with the web page</li>
+                <li>it detects file changes within the project and notifies the page about those changes using a Server Sent Event stream.
+                </li>
+            </ul>
+
+            <pre><code>nginx -p . -c nginx.conf</code></pre>
+
+        </section>
+
+        <aside class="main-sidebar" role="complementary">
+            <img src="img/html5.png">
+
+            <h3>About</h3>
+
+            <p>Hello everyone. My name is Matthias Nehlsen and I am exploring
+                functional programming, data visualization and real-time information processing.</p>
+        </aside>
+    </div>
+</div>
+
+<div class="footer-container">
+    <footer class="wrapper">
+        <p>Copyright &copy; 2013 <a href="matthiasnehlsen.com" target="_blank">Matthias Nehlsen</a></p>
+    </footer>
+</div>
+
+<!--(if target dev)><!-->
+<script src="bower_components/jquery/jquery.js"></script>
+<script src="js/reload.js"></script>
+<!--<!(endif)-->
+
+<!--(if target dist)>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!(endif)-->
+</body>
+</html>
