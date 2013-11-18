@@ -16,6 +16,7 @@ module.exports = function (grunt) {
                                     'dist/**/*.svg', 'dist/**/*.ttf', 'dist/**/*.otf' ], dest: '.' } },
         copy:        { main:    { files: [ { expand: true, cwd: 'src',  src: ['fonts/**'], dest: 'dist/'},
                                            { expand: true, cwd: 'src',  src: ['img/**'], dest: 'dist/'},
+                                           { expand: true, cwd: 'src',  src: ['*.ico'], dest: 'dist/'},
                                            { expand: true, cwd: 'src',  src: ['blog/**'],  dest: 'dist/'} ] } },
         htmlbuild:   { dist:    { src: 'build/index.html', dest: 'build/index-inline.html',
                                   options: { relative: true, styles: { bundle: 'build/css/main.min.css' } } } },

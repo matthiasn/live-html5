@@ -14,17 +14,17 @@ followed by
 
     bower install
     
-Once the dependencies are installed, you start the authoring environment by simply running
+Once the dependencies are installed, you can start the authoring environment by simply running
 
     grunt
     
-A distribution-ready version of the website can be created using
+A distribution-ready, minified and compressed version of the website can be created using
 
     grunt dist
     
     
 ##Contributions
-Feel free to submit pull requests any time if you have improvements you would like to see in the project, for example for improving layout in older desktop browsers. Just please make sure the pull request is on a separate branch, not on master. Thanks!
+Feel free to submit pull requests any time if you have improvements you would like to see in the project, for example for improving layout in older desktop browsers. Thanks!
 
 ## Licence
 
