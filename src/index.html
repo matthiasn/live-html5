@@ -49,6 +49,7 @@
 
         <p class="description">Better yet, <strong>CSS</strong> changes happen instantly, without reload. Works on <strong>mobile</strong>, too.</p>
 
+        <!--(if target dist)><!-->
         <div class="banner">
             <div class="sharing">
                 <iframe src="http://ghbtns.com/github-btn.html?user=matthiasn&repo=BirdWatch&type=watch&count=true"
@@ -57,6 +58,7 @@
                 <div class="g-plusone" data-size="medium"></div>
             </div>
         </div>
+        <!--<!(endif)-->
 
     </div>
 </header>
@@ -118,8 +120,12 @@
 <div class="footer-container">
     <footer class="wrapper">
         <p>Copyright &copy; 2013 <a href="matthiasnehlsen.com" target="_blank">Matthias Nehlsen</a></p>
+
+        <!--(if target dist)><!-->
         <iframe src="http://ghbtns.com/github-btn.html?user=matthiasn&type=follow&count=true"
                 allowtransparency="true" frameborder="0" scrolling="0" width="180" height="20"></iframe>
+        <!--<!(endif)-->
+
     </footer>
 </div>
 
@@ -133,6 +139,7 @@
 <!--script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script-->
 <!(endif)-->
 
+<!--(if target dist)><!-->
 <!-- asynchronous script loading, does not hold up page rendering -->
 <script type="text/javascript">
     (function(){
@@ -154,6 +161,7 @@
         s.parentNode.insertBefore(script, s);
     })();
 </script>
+<!--<!(endif)-->
 
 </body>
 </html>
