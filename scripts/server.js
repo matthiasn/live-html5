@@ -12,16 +12,19 @@
  **/
 'use strict';
 
-var chok   = require('chokidar');
-var SSE    = require('sse');
-var http   = require('http');
+var chok      = require('chokidar');
+var SSE       = require('sse');
+var http      = require('http');
 var urlModule = require("url");
-var path   = require("path");
-var fs     = require("fs");
-var port   = process.argv[2] || 8888;
+var path      = require("path");
+var fs        = require("fs");
+var port      = process.argv[2] || 8888;
 
-var watcher = chok.watch(process.cwd(), { ignored: /^\./, persistent: true });
-var lessWatcher = chok.watch('less', { ignored: /^\./, persistent: true });
+var clients = [];
+var watcher = chok.watch(process.cwd(), { ignored: /bower_components+/, persistent: true });
+watcher.on('change', function (path) {
+    clients.forEach(function(client) { client.send(path); }); // send path of changed file
+});
 
 /** basic web server, serving static files */
 var fileServer = http.createServer(function(request, response) {
@@ -29,18 +32,9 @@ var fileServer = http.createServer(function(request, response) {
 
     fs.exists(filename, function(exists) {
         if(!exists) {
-            fs.readFile("index.html", "binary", function(err, file) {
-                if(err) {
-                    response.writeHead(500, {"Content-Type": "text/plain"});
-                    response.write(err + "\n");
-                    response.end();
-                    return;
-                }
-                response.writeHead(200);
-                response.write(file, "binary");
-                response.end();
-            });
-
+            response.writeHead(404);
+            response.write("not found");
+            response.end();
             return;
         }
 
@@ -53,7 +47,6 @@ var fileServer = http.createServer(function(request, response) {
                 response.end();
                 return;
             }
-
             response.writeHead(200);
             response.write(file, "binary");
             response.end();
@@ -65,11 +58,6 @@ var fileServer = http.createServer(function(request, response) {
 fileServer.listen(parseInt(port, 10), function () {
     var sse = new SSE(fileServer);
     sse.on('connection', function (client) { // register watcher when connection starts
-        watcher.on('change', function (path) { client.send(path); }); // send path of changed file
-        lessWatcher.on('change', function (path) { client.send(path); }); // send path of changed file
-    });
-    sse.on('close', function() {
-        watcher.close();
-        lessWatcher.close();
+        clients.push(client);
     });
 });

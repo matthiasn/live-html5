@@ -14,15 +14,18 @@ followed by
 
     bower install
     
-Once the dependencies are installed, you can start the authoring environment by simply running
+Once the dependencies are installed, you can start the authoring environment by simply running server.js in the directory you want the client to watch. The typical case would be to run it inside the src folder, like so:
 
-    grunt
+    ../scripts/server.js
+
+Note that you will need to make server.js executable for this to work:
+
+    chmod +x server.js
     
 A distribution-ready, minified and compressed version of the website can be created using
 
     grunt dist
-    
-    
+
 ##Contributions
 Feel free to submit pull requests any time if you have improvements you would like to see in the project, for example for improving layout in older desktop browsers. Thanks!
 
