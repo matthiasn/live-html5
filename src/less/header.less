@@ -1,7 +1,5 @@
 @import "flexbox.less";
 
-@logo-color: darken(orange, 3%);
-
 .header {
   .flex-display;
   .flex-align-center;
@@ -13,7 +11,7 @@
 }
 
 .site-logo {
-  color: darken(orange, 3%);
+  color: @logo-color;
   font-weight: 700;
   font-size: 24px;
   line-height: 32px;
@@ -40,7 +38,7 @@
 .site-promo {
   text-align: center;
   width: 100%;
-  color: #ddd;
+  color: @text-color-site-promo;
   padding: 15px;
   h1 {
     margin: 10px 15px 0 15px;

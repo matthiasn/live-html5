@@ -1,6 +1,4 @@
-/*
- * Main LESS file, loads all other files
- */
+/* Main LESS file, loads all other files */
 
 @import "font-awesome-custom.less";
 @import "normalize.less";
@@ -9,16 +7,15 @@
 @import "content.less";
 @import "snippet.less";
 
-// Brand colors -> used for example for links (naming convention from Bootstrap)
+// colors
 @brand-primary: #009ACD;
-
-// Scaffolding
+@logo-color: darken(orange, 3%);
+@page-background: #222;
 @text-color: #222;
+@text-color-site-promo: #ddd;
 
-// Typography
-@font-face { font-family: Inconsolata; src: url('./fonts/Inconsolata.otf'); }
+// typography
 @font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
-//@font-family-monospace:  "Inconsolata", Monaco, Menlo, Consolas, "Courier New", monospace;
 @font-family-monospace:  Monaco, Menlo, Consolas, "Courier New", monospace;
 
 @font-size-base: 14px;
@@ -37,7 +34,7 @@ body {
   padding-bottom: 15px;
   text-rendering: optimizeLegibility;
   font-size: @font-size-base;
-  background-color: #222;
+  background-color: @page-background;
   color: @text-color;
 }
 
@@ -83,3 +80,6 @@ textarea { resize: vertical; }
   text-align: center;
 }
 
+iframe {
+  border: 0;
+}
