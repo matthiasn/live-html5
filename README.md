@@ -14,7 +14,7 @@ followed by
 
     bower install
     
-Once the dependencies are installed, you can start the authoring environment by simply running server.js in the directory you want the client to watch. The typical case would be to run it inside the src folder, like so:
+Once the dependencies are installed, you can start the authoring environment by simply running server.js in the directory you want the client to watch. The typical case would be to run it inside the src folder:
 
     ../scripts/server.js
 
@@ -27,11 +27,11 @@ A distribution-ready, minified and compressed version of the website can be crea
     grunt dist
 
 ##Contributions
-Feel free to submit pull requests any time if you have improvements you would like to see in the project, for example for improving layout in older desktop browsers. Thanks!
+Feel free to submit pull requests at any time if you have improvements you would like to see implemented in the project, for example for improving layout in older desktop browsers. Thanks!
 
 ## Licence
 
-This software is licensed under the Apache 2 license, quoted below.
+This software is licensed under the Apache 2 license mentioned below.
 
 Copyright &copy; 2013 **[Matthias Nehlsen](http://www.matthiasnehlsen.com)**.
 
