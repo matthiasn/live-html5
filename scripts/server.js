@@ -28,6 +28,12 @@ watcher.on('change', function (path) {
 
 /** basic web server, serving static files */
 var fileServer = http.createServer(function(request, response) {
+    if (path.normalize(decodeURI(request.url)) !== decodeURI(request.url)) {
+        response.statusCode = 403;
+        response.end();
+        return;
+    }
+    
     var filename = path.join(process.cwd(), urlModule.parse(request.url).pathname);
 
     fs.exists(filename, function(exists) {
